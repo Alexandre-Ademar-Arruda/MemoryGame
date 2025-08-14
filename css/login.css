@@ -6,7 +6,9 @@ body {
     width:100vw;
     height: 100vh;
     background-color: blue;
+    padding: 10px; /* evita que grude nas bordas no celular */
 }
+
 .login_form {
     display:flex;
     flex-direction:column;
@@ -19,6 +21,7 @@ body {
     background-color: white;
     padding: 20px;
 }
+
 .login_header {
     background-color:black;
     display:flex;
@@ -32,16 +35,18 @@ body {
     width: 100%;
     max-width: 250px;
 }
+
 .login_header img {
     width:100px;
 }
+
 .login_header .titulo {
     width: 100%;
     max-width: 250px;
     color:white;
     font-size: 1em;
-    
 }
+
 .login_input {
     display: flex;
     flex-direction:column;
@@ -57,6 +62,7 @@ body {
     outline: none;
     font-size: 1em;
 }
+
 .login_button {
     display:flex;
     flex-direction: column;
@@ -76,4 +82,27 @@ body {
     background-color: burlywood;
     color: black;
     cursor: auto;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    .login_form {
+        max-width: 90%;
+        padding: 15px;
+    }
+    .login_header {
+        max-width: 90%;
+        padding: 15px;
+    }
+    .login_input, .login_button {
+        max-width: 100%;
+        padding: 15px;
+        font-size: 0.9em;
+    }
+    .login_header img {
+        width: 80px;
+    }
 }
