@@ -18,7 +18,7 @@ body {
 }
 
 .card {
-    aspect-ratio: 4 / 4;
+    aspect-ratio: 3 / 4;
     width: 100%;
     border-radius: 5px;
     position: relative;
@@ -78,7 +78,7 @@ h1.titulo {
 
 @media (max-width: 480px) {
     .grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 10px;
         max-width: 100%;
     }
