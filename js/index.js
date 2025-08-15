@@ -4,18 +4,20 @@ const login_input = document.querySelector('.login_input');
 const login_button = document.querySelector('.login_button');
 
 
-const vldrNpt = ({target}) => { target.value.length > 2 ? login_button.removeAttribute('disabled') :  login_button.setAttribute('disabled',''); }
+const vldrNpt = ({target}) =>{
+    target.value.length > 2 ? login_button.removeAttribute('disabled') :  login_button.setAttribute('disabled','');
+}
 login_input.addEventListener('input',vldrNpt);
-                                                                        /* 
-                                                                            const validarInput = (e) =>{
-                                                                                if (e.target.value.length > 2){
-                                                                                    login_button.removeAttribute('disabled');
-                                                                                }else{
-                                                                                    login_button.setAttribute('disabled','');
-                                                                                }
-                                                                            }
-                                                                            login_input.addEventListener('input',validarInput);
-                                                                        */
+/* 
+                                                                                    const validarInput = (e) =>{
+                                                                                        if (e.target.value.length > 2){
+                                                                                            login_button.removeAttribute('disabled');
+                                                                                        }else{
+                                                                                            login_button.setAttribute('disabled','');
+                                                                                        }
+                                                                                    }
+                                                                                    login_input.addEventListener('input',validarInput);
+*/
 
 const handleSubmit = (e) =>{
     e.preventDefault();
