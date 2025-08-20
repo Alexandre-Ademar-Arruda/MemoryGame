@@ -6,14 +6,43 @@ body {
     width: 100vw;
     height: 100vh;
 }
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../images/sem-nome/bg.jpg');
+    width: 100%;
+    max-width: 360px ;
+    background-size: cover;
+    min-height: 100vh;
+    color: white;
+    padding: 20px 20px 50px;
+
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.8) ;
+    width: 100%;
+    max-width: 360px;
+    padding: 20px;
+    margin: 0 0 30px;
+    font-size: 1.2em;
+    color: black;
+    border-radius: 10px;
+}
+
 .grid {
     display:grid;
-    grid-template-columns: repeat(5,60px);
+    grid-template-columns: repeat(5,1fr);
     width:100%;
     max-width: 360px;
-    background-color: black;
+    background-color: coral;
     gap: 10px;
-    margin: 100px auto;
+    margin: 0 auto;
     border-radius: 5px;
     padding: 10px;
 
@@ -21,7 +50,7 @@ body {
 .card {
     aspect-ratio: 3/4;
     width:100%;
-    background-color: coral;
+    background-color: #ccc;
     position: relative;
     max-width: 250px;
     border-radius: 5px;

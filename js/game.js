@@ -1,4 +1,6 @@
 const grid = document.querySelector('.grid');
+const spanPlayer = document.querySelector('.span-player');
+const timer = document.querySelector('.timer');
 
 const persons = [
     'beth',
@@ -41,7 +43,8 @@ const checkEndGame = ()=>{
     //const desabilitados = document.querySelectorAll('.disabled-card');
     if(correto ===persons.length)
     setTimeout(()=>{
-            alert('Parabens voce encontrou todos os pares.');
+            clearInterval(this.loop);
+            alert(`Parabens ${spanPlayer.innerHTML} voce venceu em ${timer.innerHTML} segundos.`);
     },1000)
 }
 
@@ -76,18 +79,21 @@ const checkCard = () =>{
     }
 
 }
-const revealCard = ({target})=>{
-    if(target.parentNode.className.includes('reveal-card'))
-        return;
-    if(firstCard===''){
-        target.parentNode.classList.add('reveal-card');
-        firstCard = target.parentNode;
-    }else if (secondCard ===''){
-        target.parentNode.classList.add('reveal-card');
-        secondCard = target.parentNode;
+const revealCard = ({ target }) => {
+    const card = target.closest('.card');      // acha o .card mais próximo
+    if (!card) return;                         // clique fora? sai
+    if (card.classList.contains('reveal-card')) return; // já virado? sai
+
+    if (firstCard === '') {
+        card.classList.add('reveal-card');
+        firstCard = card;
+    } else if (secondCard === '') {
+        card.classList.add('reveal-card');
+        secondCard = card;
         checkCard();
     }
 };
+
 
 const criarCard = (person) => {
     const card = criarElemento('div','card','',{'data-person':person});
@@ -108,4 +114,18 @@ const loadGame = ()=>{
     });
 }
 
-loadGame();
+const startTimer = (() =>{
+    this.loop=setInterval(()=>{
+        const currentTime = Number (timer.innerHTML);
+        timer.innerHTML = currentTime+1;
+    },1000);
+});
+
+window.onload = () => {
+
+    const playerName = localStorage.getItem('player');
+    spanPlayer.innerHTML = playerName;
+    startTimer();
+    loadGame();
+}
+
